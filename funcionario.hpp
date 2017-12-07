@@ -12,7 +12,6 @@ class Funcionario : public Pessoa {
 public:
     Funcionario(string nome="", string usuario="default", string senha="default", Tempo p) : Pessoa(nome, usuario, senha){
         ponto=p;
-        cout << oi;
     }
 
     Boolean cadastrarPonto(int hora=8, int min=0, int sec=0){
