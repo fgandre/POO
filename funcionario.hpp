@@ -10,11 +10,13 @@ class Funcionario : public Pessoa {
     Tempo ponto; Tempo extra;
 
 public:
-    Funcionario(string nome="", string usuario="default", string senha="default", Tempo p) : Pessoa(nome, usuario, senha){
-        ponto=p;
+    Funcionario(string nome="", string usuario="", string senha="") : Pessoa(nome, usuario, senha){
+        Tempo ini;
+        setPonto(ini);
+        setExtra(ini);
     }
 
-    Boolean cadastrarPonto(int hora=8, int min=0, int sec=0){
+    bool cadastrarPonto(int hora=8, int min=0, int sec=0){
         Tempo max(50,0,0);
         Tempo total;
         total.somar(ponto,extra);
@@ -32,14 +34,23 @@ public:
             }
         }
     }
-    Tempo getPonto(){
+
+    
+    virtual Tempo getPonto(){
         return ponto;
     }
-    Tempo getExtra(){
+    virtual void setPonto(Tempo tempo){ 
+      ponto=tempo;
+    }
+    virtual Tempo getExtra(){
         return extra;
     }
-    virtual void exibirSalario();
-    virtual void listarVendas();
+    virtual void setExtra(Tempo tempo){
+        extra=tempo;
+    }
+    virtual double exibirSalario(){};
+    virtual void listarVendas(){};
+    virtual void menu(){};
 };
 
 #endif
