@@ -3,24 +3,36 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
 class Pessoa {
     string nome, usuario, senha;
+    //vector <Pessoa> bancoDados;
+   // int cont=0;
 public: 
     // CONSTRUTOR E DESTRUTOR DE PESSOA
-    Pessoa(string nome="", string usuario="default", string senha="default"){
-        this->nome=nome;
-        this->usuario=usuario;
-        this->senha=senha;
+    Pessoa(string nome="", string usuario="", string senha=""){
+       // if(cont==0){
+            //cont++;
+            this->nome=nome;
+            this->usuario=usuario;
+            this->senha=senha;
+       // }
+        //else{
+        //    Pessoa func(nome,usuario,senha);
+        //    bancoDados.push_back(func);
+        //}
+
+
     }
     ~Pessoa(){};
 
     // GETTERS AND SETTERS 
         //NOME
     string getNome(){
-        return Nome;
+        return nome;
     }
     void setNome(string nome){
         this->nome=nome;
@@ -41,14 +53,14 @@ public:
     }
 
     //VALIDACAO
-    Boolean validacao(){
-        strign us, se;
-        cout << "Usuario: "; cin >> us;
-        cout << "Senha: "; cin >> se; 
-        return (us==usuario) && (se==senha);
+    bool validacao(string user, string password){
+
+        if(user == this->usuario && password==this->senha)
+            return true;
+        else return false;
     }
     //MENU PARA AS CLASSES DERIVADAS
-    virtual void menu();
+    virtual void menu(){};
 };
 
 #endif

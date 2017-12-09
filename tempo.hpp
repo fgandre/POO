@@ -52,6 +52,7 @@ public:
     void print(){
         cout << hora << ":" << min << ":" << sec << endl;
     }
+   
     void subtrair(Tempo maior, Tempo menor){
         if (menor.getHora() < maior.getHora())
             this->hora = maior.getHora() - menor.getHora();
@@ -79,7 +80,7 @@ public:
         resp.setSec(menor.getSec()+getSec());
         return resp;
     }
-    Bool operator> (const Tempo& b){
+    bool operator>(Tempo& b){
         return (emDecimal() > b.emDecimal());
     }
 };
